@@ -11,14 +11,14 @@ class UsersController {
       return res.status(201).json({ id, email });
     } catch (err) {
       if (err.message === 'User already exist') {
-        return res.status(409).json({ error: err.message });
+        return res.status(400).json({ error: 'Already exist' });
       }
       throw err;
     }
   }
 
   static async getMe(req, res) {
-    const token = req.headers['x-token'];
+    const token = req.headers['X-Token'];
     const user = await getUserWithToken(token);
     if (!user) {
       return res.status(401).json({ error: 'Unauthorized' });
