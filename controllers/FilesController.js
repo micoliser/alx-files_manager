@@ -1,6 +1,6 @@
 /* eslint-disable object-curly-newline */
 /* eslint-disable comma-dangle */
-import fs from 'fs/promises';
+import fs from 'fs';
 import crypto from 'crypto';
 import mime from 'mime-types';
 import Bull from 'bull';

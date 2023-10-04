@@ -1,6 +1,6 @@
 /* eslint-disable no-await-in-loop */
 import Bull from 'bull';
-import fs from 'fs/promises';
+import fs from 'fs';
 import imageThumbnail from 'image-thumbnail';
 import dbClient from './utils/db';
 
