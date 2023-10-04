@@ -24,7 +24,7 @@ const fileQueue = new Bull('fileQueue');
 
 class FilesController {
   static async postUpload(req, res) {
-    const token = req.headers['X-Token'];
+    const token = req.headers['x-token'];
     const user = await getUserWithToken(token);
     if (!user) {
       return res.status(401).json({ error: 'Unauthorized' });
@@ -82,7 +82,7 @@ class FilesController {
   }
 
   static async getShow(req, res) {
-    const token = req.headers['X-Token'];
+    const token = req.headers['x-token'];
     const user = await getUserWithToken(token);
     if (!user) {
       return res.status(401).json({ error: 'Unauthorized' });
@@ -99,7 +99,7 @@ class FilesController {
   }
 
   static async getIndex(req, res) {
-    const token = req.headers['X-Token'];
+    const token = req.headers['x-token'];
     const user = await getUserWithToken(token);
     if (!user) {
       return res.status(401).json({ error: 'Unauthorized' });
@@ -119,7 +119,7 @@ class FilesController {
   }
 
   static async putPublish(req, res) {
-    const token = req.headers['X-Token'];
+    const token = req.headers['x-token'];
     const user = await getUserWithToken(token);
     if (!user) {
       return res.status(401).json({ error: 'Unauthorized' });
@@ -137,7 +137,7 @@ class FilesController {
   }
 
   static async putUnpublish(req, res) {
-    const token = req.headers['X-Token'];
+    const token = req.headers['x-token'];
     const user = await getUserWithToken(token);
     if (!user) {
       return res.status(401).json({ error: 'Unauthorized' });
@@ -161,7 +161,7 @@ class FilesController {
       return res.status(404).json({ error: 'Not found' });
     }
     if (!file.isPublic) {
-      const token = req.headers['X-Token'];
+      const token = req.headers['x-token'];
       const user = await getUserWithToken(token);
       if (!user) {
         return res.status(404).json({ error: 'Not found' });
